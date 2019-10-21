@@ -1,3 +1,5 @@
-﻿  pch.cpp
-  dllmain.cpp
-  spline_kernel.vcxproj -> C:\Users\nvsbl\source\repos\spline_kernel\x64\Debug\spline_kernel.dll
+﻿  interval.cpp
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(6,25): error C2653:  'interval': is not a class or namespace name
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(7,2): error C2270:  'length': modifiers not allowed on nonmember functions
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(8,10): error C2065:  '_bborder': undeclared identifier
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(8,21): error C2065:  '_aborder': undeclared identifier

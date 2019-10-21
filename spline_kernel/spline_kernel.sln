@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29230.47
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spline_kernel", "spline_kernel.vcxproj", "{B037BC5B-E1BD-44F0-B8ED-A635FB17A239}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {66C468ED-36E9-4451-A4B0-65F029C73897}
+		SolutionGuid = {27BDFCAA-3D7D-4B70-988E-3E01F3FAD678}
 	EndGlobalSection
 EndGlobal
