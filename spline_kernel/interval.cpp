@@ -1,5 +1,6 @@
-#include "interval.h"
 #include "pch.h"
+#include "interval.h"
+
 using namespace std;
 
 double spl::interval::length() const 

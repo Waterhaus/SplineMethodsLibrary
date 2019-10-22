@@ -1,5 +1,5 @@
-﻿  interval.cpp
-C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(6,25): error C2653:  'interval': is not a class or namespace name
-C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(7,2): error C2270:  'length': modifiers not allowed on nonmember functions
-C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(8,10): error C2065:  '_bborder': undeclared identifier
-C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(8,21): error C2065:  '_aborder': undeclared identifier
+﻿  spline_kernel.cpp
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.cpp(7,1): warning C4273:  'meaning_of_life': inconsistent dll linkage
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.h(11,37): message :  see previous definition of 'meaning_of_life'
+     Creating library C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.lib and object C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.exp
+  spline_kernel.vcxproj -> C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.dll
