@@ -1,5 +1,15 @@
-﻿  spline_kernel.cpp
+﻿  interval.cpp
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(6,45): warning C4273:  'spl::interval::interval': inconsistent dll linkage
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(13,3): message :  see previous definition of '{ctor}'
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(10,56): warning C4273:  'spl::interval::interval': inconsistent dll linkage
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(15,3): message :  see previous definition of '{ctor}'
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(17,1): warning C4273:  'spl::interval::length': inconsistent dll linkage
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(18,10): message :  see previous definition of 'length'
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(23,1): warning C4273:  'spl::interval::get_step': inconsistent dll linkage
+  spline_kernel.cpp
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(17,10): message :  see previous definition of 'get_step'
 C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.cpp(7,1): warning C4273:  'meaning_of_life': inconsistent dll linkage
 C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.h(11,37): message :  see previous definition of 'meaning_of_life'
-     Creating library C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.lib and object C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.exp
+  Generating Code...
+C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.cpp(8,16): warning C4930:  'spl::interval interval(void)': prototyped function not called (was a variable definition intended?)
   spline_kernel.vcxproj -> C:\Users\nvsbl\Documents\GitHub\SplineMethodsLibrary\spline_kernel\x64\Debug\spline_kernel.dll
