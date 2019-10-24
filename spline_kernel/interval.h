@@ -12,8 +12,7 @@ namespace spl
 		
 		interval(double a, double b);
 		
-		interval(std::tuple<double, double> ab);
-
+		
 		double get_step(std::size_t n) const;
 		double length() const;
 

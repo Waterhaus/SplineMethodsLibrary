@@ -108,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -165,6 +166,7 @@
     <ClInclude Include="spline_kernel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cardinal_spline.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="interval.cpp" />
     <ClCompile Include="pch.cpp">

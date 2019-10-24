@@ -8,4 +8,6 @@
 #endif
 
 // Get the position of the current value in the sequence.
-extern "C" MATHLIBRARY_API unsigned meaning_of_life();
+extern "C" __declspec(dllimport) unsigned meaning_of_life();
+
+extern "C" __declspec(dllimport) void foo();

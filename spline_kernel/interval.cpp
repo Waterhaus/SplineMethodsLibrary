@@ -7,10 +7,6 @@ spl::interval::interval(double a, double b) :
 	_aborder(std::min<double>(a, b)),
 	_bborder(std::max<double>(a, b)) {}
 
-spl::interval::interval(std::tuple<double, double> ab) :
-	_aborder(std::min<double>(std::get<0>(ab), std::get<1>(ab))),
-	_bborder(std::max<double>(std::get<0>(ab), std::get<1>(ab))) {}
-
 
 
 double spl::interval::length() const 
