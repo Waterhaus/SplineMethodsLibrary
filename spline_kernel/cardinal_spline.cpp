@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "cardinal_spline.h"
 
-namespace spl::cardinal 
+namespace sml::cardinal 
 {
 	double rect(double t) 
 	{
@@ -19,6 +19,11 @@ namespace spl::cardinal
 		double inv_k_dec = 1.0 / ((double)k - 1.0);
 
 		return (t * inv_k_dec) * ksi(t, k - 1) + ((k - t) * inv_k_dec) * ksi(t - 1.0, k - 1);
+	}
+
+	void api_bsplvb(double t, int k) 
+	{
+		bsplvb(t, k);
 	}
 }
 

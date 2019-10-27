@@ -5,7 +5,7 @@
 
 unsigned meaning_of_life()
 {
-	spl::interval interval = {0,1};
+	sml::interval interval = {0,1};
 	return 42u;
 }
 

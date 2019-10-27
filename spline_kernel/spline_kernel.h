@@ -11,3 +11,4 @@
 extern "C" __declspec(dllimport) unsigned meaning_of_life();
 
 extern "C" __declspec(dllimport) void foo();
+

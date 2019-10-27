@@ -3,7 +3,7 @@
 #include "spline_kernel.h"
 #include <tuple>
 #include <algorithm>
-namespace spl
+namespace sml
 {
 	class MATHLIBRARY_API interval
 	{
@@ -15,6 +15,8 @@ namespace spl
 		
 		double get_step(std::size_t n) const;
 		double length() const;
+
+		bool is_contains(double t) const;
 
 		const double _aborder;
 		const double _bborder;

@@ -3,7 +3,7 @@
 #include "interval.h"
 #include "cardinal_spline.h"
 
-namespace spl
+namespace sml
 {
 	//VectorSpaceType - тип, поддерживающий операции векторного пространства +,-,*, умножение на число и так далее
 	//degree - степень сплайна
