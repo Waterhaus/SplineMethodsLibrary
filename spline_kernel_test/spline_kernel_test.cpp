@@ -15,5 +15,5 @@ int main()
 
     std::cout << "Hello World! " << meaning_of_life() << std::endl;
 
-	sml::cardinal::api_bsplvb(0.25, 3);
+	sml::cardinal::api_bsplvb(1, 3);
 }

@@ -19,11 +19,17 @@ namespace sml::cardinal
 	{
 		assert(k >= 1);
 		assert(interval(0.0, 1.0).is_contains(t));			
-		
+		auto i = k - 1;
 		auto deboor = [](double x, double ksi_l, double ksi_r, int degree)->double 
 		{
-			double inv_k_dec = 1.0 / ((double)degree - 1.0);
-			return (x * inv_k_dec) * ksi_l + ((degree - x) * inv_k_dec) * ksi_r;
+			return 
+				x * ksi_l
+		/ //====================
+			   (degree - 1)
+		
+		+	(degree - x) * ksi_r
+		/ //====================
+			   (degree - 1);
 		};
 		//начмнаем расчет
 		std::vector<double> ksi = {0.0, 1.0, 0.0};
