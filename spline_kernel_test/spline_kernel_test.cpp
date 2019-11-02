@@ -2,6 +2,7 @@
 #include "spline_kernel.h"
 #include "interval.h"
 #include "cardinal_spline.h"
+#include "spline.h"
 
 int main()
 {
@@ -16,4 +17,15 @@ int main()
     std::cout << "Hello World! " << meaning_of_life() << std::endl;
 
 	sml::cardinal::api_bsplvb(0.25, 3);
+
+	//=========================
+
+	sml::spline<double, 2u> f(5u, { 0., 1. }), g(5u, { 0., 1. });
+	f.fill(1.);
+	g.fill(2.);
+
+	auto h = f + g;
+
+	auto fx = h(0.5);
+
 }

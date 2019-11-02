@@ -14,6 +14,7 @@ namespace sml
 		
 		
 		double get_step(std::size_t n) const;
+		double get_inverse_step(std::size_t n) const;
 		double length() const;
 
 		bool is_contains(double t) const;

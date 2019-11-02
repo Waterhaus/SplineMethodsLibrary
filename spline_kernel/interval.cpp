@@ -17,7 +17,19 @@ double sml::interval::length() const
 
 double sml::interval::get_step(std::size_t n) const
 {
-	return (_bborder - _aborder) / (static_cast<double>(n) - 1.0);
+	double N = static_cast<double>(n);
+	return 
+			   (_bborder - _aborder) 
+		/ //===========================
+					 ( N - 1.);
+}
+double sml::interval::get_inverse_step(std::size_t n) const
+{
+	double N = static_cast<double>(n);
+	return
+				  ( N - 1.)
+		/ //===========================
+			(_bborder - _aborder);
 }
 
 bool sml::interval::is_contains(double t) const 

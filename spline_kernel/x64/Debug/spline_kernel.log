@@ -3,16 +3,18 @@
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\cardinal_spline.cpp(25,2): warning C4273: 'sml::cardinal::api_bsplvb': inconsistent dll linkage
   dllmain.cpp
   interval.cpp
-C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\cardinal_spline.h(47,23): message : see previous definition of 'api_bsplvb'
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\cardinal_spline.h(64,23): message : see previous definition of 'api_bsplvb'
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(6,45): warning C4273: 'sml::interval::interval': inconsistent dll linkage
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(13,3): message : see previous definition of '{ctor}'
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(13,1): warning C4273: 'sml::interval::length': inconsistent dll linkage
-C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(17,10): message : see previous definition of 'length'
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(18,10): message : see previous definition of 'length'
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(19,1): warning C4273: 'sml::interval::get_step': inconsistent dll linkage
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(16,10): message : see previous definition of 'get_step'
-C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(24,1): warning C4273: 'sml::interval::is_contains': inconsistent dll linkage
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(27,1): warning C4273: 'sml::interval::get_inverse_step': inconsistent dll linkage
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(17,10): message : see previous definition of 'get_inverse_step'
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.cpp(36,1): warning C4273: 'sml::interval::is_contains': inconsistent dll linkage
   spline_kernel.cpp
-C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(19,8): message : see previous definition of 'is_contains'
+C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\interval.h(20,8): message : see previous definition of 'is_contains'
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.cpp(7,1): warning C4273: 'meaning_of_life': inconsistent dll linkage
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.h(11,43): message : see previous definition of 'meaning_of_life'
 C:\Users\Denis\Documents\GitHub\SplineMethodsLibrary\spline_kernel\spline_kernel.cpp(12,12): warning C4273: 'foo': inconsistent dll linkage
