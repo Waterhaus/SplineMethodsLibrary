@@ -1,20 +1,21 @@
 #pragma once
 #include <vector>
 #include <assert.h>
+#include <cmath>
 
 #include "interval.h"
 
 namespace sml::cardinal
 {
-	//функция - ступенька на отрезке [0,1]
+	/*Функция - ступенька на отрезке [0,1]*/
 	double rect(double t);
 
-	//рекурсивное вычисление кардинального сплайна поряка k в точке t
+	/*Рекурсивное вычисление кардинального сплайна поряка k в точке t.*/
 	double ksi(double t, int k);
 
-	//алгоритм основан на идеи де Бура из одноименной процедуры BSPLVB
-	//t - из отрезка [0,1]
-	//k - степень сплайна >= 1
+	/* Алгоритм основан на идеи де Бура из одноименной процедуры BSPLVB:
+	 * t - из отрезка [0,1]
+	 * k - степень сплайна >= 1*/
 	inline std::vector<double> bsplvb(double t, int k) 
 	{
 		assert(k >= 1);
@@ -49,6 +50,22 @@ namespace sml::cardinal
 		return answer_ksi;
 	}
 
+	/*Функция по интервалу, шагу и числу возвращает индекс подинтервала на вещественной прямой 
+	* Вход:
+	* Вещественное число t .
+	* интервал base_interval
+	* Выход: 
+	* int index - индекс подинтервала относительно base_interval*/
+	inline int calculate_relative_index(double t, interval base_interval, std::size_t grid_size) 
+	{
+		double inv_step = base_interval.get_inverse_step(grid_size);
+		const auto& [a, b] = base_interval;
+		return
+			static_cast<int>(
+				std::floor(
+					(t - a) * inv_step
+				));
+	}
 
 	void MATHLIBRARY_API api_bsplvb(double t, int k);
 }
