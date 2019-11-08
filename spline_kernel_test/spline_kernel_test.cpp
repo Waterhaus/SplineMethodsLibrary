@@ -17,7 +17,10 @@ int main()
     std::cout << "Hello World! " << meaning_of_life() << std::endl;
 
 	sml::cardinal::api_bsplvb(0.25, 3);
+	//=========================
+	std::vector<int> v(3u, 7);
 
+	std::vector<int> w(v.begin()+4, v.end());
 	//=========================
 
 	sml::spline<double, 2u> f(5u, { 0., 1. }), g(5u, { 0., 1. });

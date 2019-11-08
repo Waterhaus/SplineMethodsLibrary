@@ -35,14 +35,13 @@ namespace sml
 		const VectorSpaceType& operator[](std::size_t idx) const { return _coefs[idx]; }
 
 		//f(t) -> VectorSpaceType. это тип коэффициентов
-		VectorSpaceType operator()(double t);
+		VectorSpaceType operator()(double t) const;
 
 		spline operator+(const spline& other) const;
 		spline operator*(double val);
 
 	private:
-		double ksi(double t) { return cardinal::ksi(t, degree); };
-
+		
 		std::vector<VectorSpaceType> _coefs;
 		interval _border;
 		std::size_t _grid_size;
@@ -52,7 +51,7 @@ namespace sml
 	template<typename VectorSpaceType, std::size_t degree>
 	spline<VectorSpaceType, degree>::spline() :
 		_coefs(4u + degree - 2u),
-		_border({0.,1.}),
+		_border({0., 1.}),
 		_grid_size(4u) {}
 
 
@@ -69,7 +68,7 @@ namespace sml
 		_grid_size(f._grid_size) {}
 
 	template<typename VectorSpaceType, std::size_t degree>
-	VectorSpaceType spline<VectorSpaceType, degree>::operator()(double t)
+	VectorSpaceType spline<VectorSpaceType, degree>::operator()(double t) const
 	{
 		auto filter = [](double t)->double 
 		{
@@ -80,19 +79,34 @@ namespace sml
 		/*Возвращаемый результат. Аналог 0 в VectorSpaceType*/
 		VectorSpaceType sum = 0. * _coefs.front();
 		
-		int index = cardinal::calculate_relative_index(t, _border, _grid_size);
+		const int index = cardinal::calculate_relative_index(t, _border, _grid_size);
 		const auto& [a, b] = _border;
-		double inv_step = _border.get_inverse_step(_grid_size);
-		double step = _border.get_step(_grid_size);
+		const double inv_step = _border.get_inverse_step(_grid_size);
+		const double step = _border.get_step(_grid_size);
+		const double x = filter((t - (a + index * step)) * inv_step);
+		
+		const std::vector<double> ksi_val = [x](int deg, int index, int grid_size)	{
+			
+			auto val = cardinal::bsplvb(x, deg);
+			
+			if (index >= 0 && index < grid_size)
+				return val;
+			else {
+				int delta = (index < 0) ? (index) : (index - grid_size + 1);
+				
+				/*Если мы за носителем, возвращаем пустой вектор*/
+				if (std::abs(delta) >= deg)
+					return std::vector<double>();
 
-		double x = (t - (a + index * step)) * inv_step;
-		x = filter(x);
-
-		std::vector<double> ksi_val = cardinal::bsplvb(x, degree);
+				if(delta < 0)
+					return std::vector<double>(val.begin() + std::abs(delta), val.end());
+				else
+					return std::vector<double>(val.begin(), val.end() - delta);
+			}
+		}(degree,index,_grid_size);
 
 		/*Если индекс в диапозоне 0 <= index < grid_size 
-		* тогда используем подмассив из _coefs размера degree */
-		
+		* тогда используем подмассив из _coefs размера degree */		
 
 		auto c_begin = _coefs.begin() + index;
 		auto c_end = _coefs.begin() + (index + (degree - 1));
