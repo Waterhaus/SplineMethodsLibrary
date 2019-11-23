@@ -414,3 +414,15 @@ spline_kernel/x64/Debug/spline_kernel.tlog/spline_kernel.lastbuildstate
 spline_kernel/x64/Debug/spline_kernel.tlog/spline_kernel.write.1u.tlog
 spline_kernel/x64/Debug/vc142.idb
 spline_kernel/x64/Debug/vc142.pdb
+spline_kernel/.vs/spline_kernel/v16/.suo
+spline_kernel/.vs/spline_kernel/v16/.suo
+spline_kernel/.vs/spline_kernel/v16/Browse.VC.db
+*.db
+*.exp
+*.ilk
+*.log
+*.tlog
+*.idb
+*.tlog
+*.lastbuildstate
+*.log
