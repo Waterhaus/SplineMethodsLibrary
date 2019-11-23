@@ -6,6 +6,7 @@
 #include "cardinal_spline.h"
 #include "spline.h"
 using namespace std;
+using namespace sml;
 
 
 template<typename T>
@@ -31,8 +32,10 @@ void SaveFunctionToFile(T f, sml::interval interval, int grid_size, string path)
 }
 
 
+
 int main()
 {
+
 	sml::interval interval(1.4, 1.0);
 	sml::interval i = {0.0, 1.0};
 	auto [a, b] = i;
@@ -49,7 +52,9 @@ int main()
 	f.fill(1.);
 	g.fill(2.);
 
-	auto h = f + g;
+	
+
+	auto h = 10. * f * 7.;
 	h(-0.51);
 
 	SaveFunctionToFile(h, { -1., 2. }, 100, "C:\\TXT");

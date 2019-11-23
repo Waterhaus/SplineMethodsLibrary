@@ -30,6 +30,8 @@ namespace sml
 		void fill(VectorSpaceType val) 
 		{
 			std::fill(_coefs.begin(), _coefs.end(), val);
+
+		
 		}
 		
 
@@ -39,8 +41,15 @@ namespace sml
 		//f(t) -> VectorSpaceType. это тип коэффициентов
 		VectorSpaceType operator()(double t) const;
 
+		
 		spline operator+(const spline& other) const;
-		spline operator*(double val);
+		spline operator-(const spline& other) const;
+		
+		template<typename T, std::size_t p>
+		friend spline<T, p> operator* (double a, const spline<T, p>& f);
+		
+		template<typename T, std::size_t p>
+		friend spline<T, p> operator* (const spline<T, p>& f, double a);
 
 	private:
 
@@ -130,6 +139,35 @@ namespace sml
 		return std::move(f);
 	}
 
+	template<typename VectorSpaceType, std::size_t degree>
+	spline<VectorSpaceType, degree> spline<VectorSpaceType, degree>::operator-(const spline& other) const
+	{
+		spline<VectorSpaceType, degree> f(_grid_size, _border);
+
+		for (int i = 0; i < other.size(); i++) {
+			f[i] = _coefs[i] + other._coefs[i];
+		}
+
+		return std::move(f);
+	}
+
+
+	template<typename T, std::size_t degree>
+	spline<T, degree>  operator*(double a, const spline<T, degree>& other)
+	{
+		spline<T, degree> f(other._grid_size, other._border);
+
+		for (int i = 0; i < other.size(); i++) {
+			f[i] = a * other._coefs[i];
+		}
+		return std::move(f);
+	}
+
+	template<typename T, std::size_t degree>
+	spline<T, degree>  operator*(const spline<T, degree>& f, double a)
+	{		
+		return std::move(a * f);
+	}
 
 }
 
