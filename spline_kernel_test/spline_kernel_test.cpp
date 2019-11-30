@@ -35,6 +35,7 @@ void SaveFunctionToFile(T f, sml::interval interval, int grid_size, string path)
 
 int main()
 {
+	using sml::spline;
 
 	sml::interval interval(1.4, 1.0);
 	sml::interval i = {0.0, 1.0};
@@ -48,15 +49,5 @@ int main()
 
 	sml::cardinal::api_bsplvb(0.25, 3);
 
-	sml::spline<double, 4u> f(5u, { 0., 1. }), g(5u, { 0., 1. });
-	f.fill(1.);
-	g.fill(2.);
-
-	
-
-	auto h = 10. * f * 7.;
-	h(-0.51);
-
-	SaveFunctionToFile(h, { -1., 2. }, 100, "C:\\TXT");
 
 }

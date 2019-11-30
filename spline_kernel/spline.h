@@ -16,35 +16,28 @@ namespace sml
 		spline();
 		spline(std::size_t grid_size, interval border);//выделение памяти. создаем вектор размера size + degree - 2
 		spline(const spline& f);
-
+		
 		~spline() {};
 
-		//функции наследники vector
+	
 		std::size_t size() const { return _coefs.size(); }
-		void resize(std::size_t grid_size) 
-		{ 
-			_grid_size = grid_size;
-			_coefs.resize(grid_size);
-		}
-
-		void fill(VectorSpaceType val) 
-		{
-			std::fill(_coefs.begin(), _coefs.end(), val);
-
-		
-		}
-		
 
 		VectorSpaceType& operator[](std::size_t idx) { return _coefs[idx]; }
 		const VectorSpaceType& operator[](std::size_t idx) const { return _coefs[idx]; }
 
-		//f(t) -> VectorSpaceType. это тип коэффициентов
+	
 		VectorSpaceType operator()(double t) const;
 
-		
+		/*======================================================*
+		** addition and subtraction.
+		*=======================================================*/
 		spline operator+(const spline& other) const;
 		spline operator-(const spline& other) const;
 		
+		/*======================================================*
+		** multyplication left and right.
+		*=======================================================*/
+
 		template<typename T, std::size_t p>
 		friend spline<T, p> operator* (double a, const spline<T, p>& f);
 		
@@ -52,6 +45,8 @@ namespace sml
 		friend spline<T, p> operator* (const spline<T, p>& f, double a);
 
 	private:
+		spline(std::vector<VectorSpaceType>&& coefs, interval border);
+
 
 		std::vector<VectorSpaceType> _coefs;
 		interval _border;
@@ -79,6 +74,15 @@ namespace sml
 		_grid_size(grid_size){}
 
 	template<typename VectorSpaceType, std::size_t degree>
+	spline<VectorSpaceType, degree>::spline(std::vector<VectorSpaceType>&& coefs, interval border) :
+		_coefs(std::move(coefs)),
+		_border(border),
+		_grid_size(coefs.size() - degree + 2u),
+		_step(_border.get_step(_grid_size)),
+		_domain({ (border._aborder + (1. - (double)degree)) * _step, border._bborder + ((double)degree - 1.) * _step })
+		 {}
+
+	template<typename VectorSpaceType, std::size_t degree>
 	spline<VectorSpaceType, degree>::spline(const spline& f) : 
 		_coefs(f._coefs),
 		_border(f._border),
@@ -86,6 +90,7 @@ namespace sml
 		_domain(f._domain),
 		_grid_size(f._grid_size) {}
 
+	
 	template<typename VectorSpaceType, std::size_t degree>
 	VectorSpaceType spline<VectorSpaceType, degree>::operator()(double t) const
 	{

@@ -28,7 +28,8 @@ namespace sml::cardinal
 		/ //====================
 			   (degree - 1)
 		
-		+	(degree - x) * ksi_r
+		+	
+			(degree - x) * ksi_r
 		/ //====================
 			   (degree - 1);
 		};
