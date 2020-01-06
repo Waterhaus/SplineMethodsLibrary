@@ -3,10 +3,14 @@
 
 using namespace std;
 
+
+sml::interval::interval() :
+	_aborder(0.),
+	_bborder(0.) {}
+
 sml::interval::interval(double a, double b) :
 	_aborder(std::min<double>(a, b)),
 	_bborder(std::max<double>(a, b)) {}
-
 
 
 double sml::interval::length() const 

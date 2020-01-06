@@ -437,3 +437,12 @@ spline_kernel_test/x64/Debug/spline_k.A5E00999.tlog/link.read.1.tlog
 spline_kernel_test/x64/Debug/spline_kernel_test.log
 spline_kernel_test/x64/Debug/vc142.idb
 spline_kernel_test/x64/Debug/vc142.pdb
+*.db
+*.exp
+*.ilk
+*.log
+*.tlog
+*.idb
+*.tlog
+*.lastbuildstate
+*.log

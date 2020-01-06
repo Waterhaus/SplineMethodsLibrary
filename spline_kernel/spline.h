@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <Eigen/Dense>
+#include <optional>
 #include "interval.h"
 #include "cardinal_spline.h"
 
@@ -12,45 +13,58 @@ namespace sml
 	template <typename T>
 	using Vector = Eigen::Matrix<T, Eigen::Dynamic, 1>;
 
-	//VectorSpaceType - тип, поддерживающий операции векторного пространства +,-,*, умножение на число и так далее
-	//degree - степень сплайна
+	//VectorSpaceType - пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ +,-,*, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	//degree - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	template<typename VectorSpaceType, std::size_t degree>
 	class spline
 	{
 	public:
 		spline();
-		spline(std::size_t grid_size, interval border);//выделение памяти. создаем вектор размера size + degree - 2
+		spline(std::size_t grid_size, interval border);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ size + degree - 2
 		spline(const spline& f);
-
+		
 		~spline() {};
 
-		//функции наследники vector
+	
 		std::size_t size() const { return _coefs.size(); }
-		void resize(std::size_t grid_size) 
-		{ 
-			_grid_size = grid_size;
-			_coefs.resize(grid_size);
-			_coefs = Vector<VectorSpaceType>::Zero();
+		interval domain() const {
+			const auto [a, b] = _border;
+			const double delta = ((double)degree - 1.) * _step;
+			return interval(a - delta, b +  delta); 
 		}
 		
 
 		VectorSpaceType& operator[](std::size_t idx) { return _coefs[idx]; }
 		const VectorSpaceType& operator[](std::size_t idx) const { return _coefs[idx]; }
 
-		//f(t) -> VectorSpaceType. это тип коэффициентов
+	
 		VectorSpaceType operator()(double t) const;
 
+		/*======================================================*
+		** addition and subtraction.
+		*=======================================================*/
 		spline operator+(const spline& other) const;
-		spline operator*(double val);
+		spline operator-(const spline& other) const;
+		
+		/*======================================================*
+		** multyplication left and right.
+		*=======================================================*/
+
+		template<typename T, std::size_t p>
+		friend spline<T, p> operator* (double a, const spline<T, p>& f);
+		
+		
+		template<typename T, std::size_t p>
+		friend spline<T, p> operator* (const spline<T, p>& f, double a);
 
 	private:
-		
+
 		Vector<VectorSpaceType> _coefs;
 		interval _border;
+		double _step;
 		std::size_t _grid_size;
 
 	};
-
 
 }
 #include "spline.hpp"

@@ -8,11 +8,9 @@ namespace sml
 	class MATHLIBRARY_API interval
 	{
 	public:
-		interval() = delete;
-		
+		interval();		
 		interval(double a, double b);
-		
-		
+				
 		double get_step(std::size_t n) const;
 		double get_inverse_step(std::size_t n) const;
 		double length() const;
