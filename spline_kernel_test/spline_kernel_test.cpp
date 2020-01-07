@@ -1,10 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Eigen/Dense>
+
 #include "spline_kernel.h"
 #include "interval.h"
 #include "cardinal_spline.h"
 #include "spline.h"
+#include "generate_spline.h"
+#include "data.h"
 using namespace std;
 using namespace sml;
 
@@ -33,16 +37,35 @@ void SaveFunctionToFile(T f, sml::interval interval, int grid_size, string path)
 
 
 
-#include <Eigen/Dense>
+
+
+void test1()
+{
+	using sml::data::calculate_points;
+	using sml::generator::create_spline;
+
+	auto f = [](double t)->double {return t*t + 1.; };
+	interval interv = { 0., 1. };
+	auto sp_f = create_spline<double, 2u>(f, interv, 10);
+
+	const auto points = calculate_points<double>(f, interv, 100);
+
+	for (size_t i = 0; i < 100; i++)
+	{
+		std::cout << points[i] << ", ";
+	}
+}
 
 int main()
 {
+	test1();
 	Eigen::Vector2f vec(0, 1);
 	using sml::spline;
 
 	sml::interval interval(1.4, 1.0);
 	sml::interval i = {0.0, 1.0};
 	auto [a, b] = i;
+
 
 
 	std::cout << a << " " << b << std::endl;

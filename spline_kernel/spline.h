@@ -13,8 +13,8 @@ namespace sml
 	template <typename T>
 	using Vector = Eigen::Matrix<T, Eigen::Dynamic, 1>;
 
-	//VectorSpaceType - ���, �������������� �������� ���������� ������������ +,-,*, ��������� �� ����� � ��� �����
-	//degree - ������� �������
+	//VectorSpaceType - {+,-, * (on double) }
+	//degree -
 	template<typename VectorSpaceType, std::size_t degree>
 	class spline
 	{
