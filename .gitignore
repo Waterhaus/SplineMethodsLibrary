@@ -446,3 +446,4 @@ spline_kernel_test/x64/Debug/vc142.pdb
 *.tlog
 *.lastbuildstate
 *.log
+*.ipch
