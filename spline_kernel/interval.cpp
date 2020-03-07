@@ -43,3 +43,8 @@ bool sml::interval::is_contains(double t) const
 	else
 		return false;
 }
+
+std::tuple<double, double> sml::interval::data() const 
+{
+	return std::make_tuple(_aborder, _bborder);
+}

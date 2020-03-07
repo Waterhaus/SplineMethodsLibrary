@@ -1,11 +1,13 @@
 #pragma once
 #include <vector>
+#include <functional>
 #include "interval.h"
+
 
 namespace sml::data
 {
-	template<typename T, typename F>
-	std::vector<T> calculate_points(const F& f, interval interv, int size)
+	template<typename T>
+	std::vector<T> calculate_points(std::function<T(double)> f, interval interv, int size)
 	{
 		std::vector<T> data(size);
 		const auto [a, b] = interv;

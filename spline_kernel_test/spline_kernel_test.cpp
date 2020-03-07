@@ -9,6 +9,7 @@
 #include "spline.h"
 #include "generate_spline.h"
 #include "data.h"
+#include "classic_methods.h"
 using namespace std;
 using namespace sml;
 
@@ -56,8 +57,27 @@ void test1()
 	}
 }
 
+void test2()
+{
+	const double root = std::sqrt(2.);
+	auto f = [root](double t)->double {
+		return std::pow(t - root, 3);
+	};
+	interval interv = { -10., 10. };
+	
+	auto answer = sml::numeric::bisection<double>(f, interv, 1e-6, [](double fa, double fb)->bool {
+		if (fa * fb < 0.)
+			return true;
+		return false;
+		});
+
+	if (answer)
+		std::cout <<"bisection error = "<< std::abs(answer.value() - root) << std::endl;
+}
+
 int main()
 {
+	test2();
 	test1();
 	Eigen::Vector2f vec(0, 1);
 	using sml::spline;
