@@ -6,7 +6,7 @@
 #include "spline_kernel.h"
 #include "interval.h"
 #include "cardinal_spline.h"
-#include "spline.h"
+#include "kernel\spline.h"
 #include "generate_spline.h"
 #include "data.h"
 #include "classic_methods.h"

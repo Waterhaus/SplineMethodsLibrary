@@ -1,6 +1,6 @@
 #pragma once
 #include <functional>
-#include "spline.h"
+#include "kernel\spline.h"
 
 namespace spl::generator
 {
