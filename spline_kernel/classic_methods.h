@@ -10,14 +10,14 @@ namespace sml::numeric
 	std::optional<double> bisection(	std::function<T(double)> f, 
 					interval interv,
 					const double epsilon,
-					std::function<bool(T, T)> compare) {
+					std::function<bool(std::function<T(double)>, interval)> compare) {
 
 		auto [a, b] = interv.data();
 
 		while (b - a > epsilon) {
 			double center = 0.5 * (a + b);
-			bool left = compare(f(a), f(center));
-			bool right = compare(f(center), f(b));
+			bool left =		compare(f, interval{a, center});
+			bool right =	compare(f, interval{center, b});
 			if (left && right || !left && !right)
 				return std::nullopt;
 

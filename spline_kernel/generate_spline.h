@@ -1,17 +1,18 @@
 #pragma once
+#include <functional>
 #include "spline.h"
 
 namespace sml::generator
 {
-	template<typename T, std::size_t p, typename F>
-	spline<T,p> create_spline(F func, interval interv, int size)
+	template<typename T = double, std::size_t p = 2>
+	spline<T,p> create_spline(std::function<T(double)> func, interval interv, int size)
 	{
 		/*NOT IMPLEMENTED*/
 		return spline<T, p>();
 	}
 
-	template<typename T, typename F>
-	spline<T, 2u> create_spline(F func, interval interv, int size)
+	template<typename T = double>
+	spline<T, 2u> create_spline(std::function<T(double)> func, interval interv, int size)
 	{
 		const auto [a, b] = interv;
 		const double step = interv.get_step(size);

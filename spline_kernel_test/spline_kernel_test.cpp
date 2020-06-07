@@ -65,8 +65,9 @@ void test2()
 	};
 	interval interv = { -10., 10. };
 	
-	auto answer = sml::numeric::bisection<double>(f, interv, 1e-6, [](double fa, double fb)->bool {
-		if (fa * fb < 0.)
+	auto answer = sml::numeric::bisection<double>(f, interv, 1e-6, 
+		[](std::function<double(double)> func, interval gap)->bool {
+		if (func(gap._aborder) * func(gap._bborder) < 0.)
 			return true;
 		return false;
 		});
