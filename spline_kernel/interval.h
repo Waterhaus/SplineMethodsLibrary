@@ -3,7 +3,7 @@
 #include "spline_kernel.h"
 #include <tuple>
 #include <algorithm>
-namespace sml
+namespace spl
 {
 	class MATHLIBRARY_API interval
 	{

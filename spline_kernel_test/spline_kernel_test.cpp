@@ -11,11 +11,11 @@
 #include "data.h"
 #include "classic_methods.h"
 using namespace std;
-using namespace sml;
+using namespace spl;
 
 
 template<typename T>
-void SaveFunctionToFile(T f, sml::interval interval, int grid_size, string path) 
+void SaveFunctionToFile(T f, spl::interval interval, int grid_size, string path) 
 {
 	const auto [a, b] = interval;
 
@@ -42,8 +42,8 @@ void SaveFunctionToFile(T f, sml::interval interval, int grid_size, string path)
 
 void test1()
 {
-	using sml::data::calculate_points;
-	using sml::generator::create_spline;
+	using spl::data::calculate_points;
+	using spl::generator::create_spline;
 
 	auto f = [](double t)->double {return t*t + 1.; };
 	interval interv = { 0., 1. };
@@ -65,7 +65,7 @@ void test2()
 	};
 	interval interv = { -10., 10. };
 	
-	auto answer = sml::numeric::bisection<double>(f, interv, 1e-6, 
+	auto answer = spl::numeric::bisection<double>(f, interv, 1e-6, 
 		[](std::function<double(double)> func, interval gap)->bool {
 		if (func(gap._aborder) * func(gap._bborder) < 0.)
 			return true;
@@ -81,10 +81,10 @@ int main()
 	test2();
 	test1();
 	Eigen::Vector2f vec(0, 1);
-	using sml::spline;
+	using spl::ker::spline;
 
-	sml::interval interval(1.4, 1.0);
-	sml::interval i = {0.0, 1.0};
+	spl::interval interval(1.4, 1.0);
+	spl::interval i = {0.0, 1.0};
 	auto [a, b] = i;
 
 
@@ -94,10 +94,10 @@ int main()
 
     std::cout << "Hello World! " << meaning_of_life() << std::endl;
 
-	sml::cardinal::api_bsplvb(0.25, 3);
+	spl::cardinal::api_bsplvb(0.25, 3);
 
 	const int size = 10;
-	sml::spline<double, 2u> f(size, { 0., 1. }), g(size, { 0., 1. });
+	spl::ker::spline<double, 2u> f(size, { 0., 1. }), g(size, { 0., 1. });
 
 
 	for (size_t i = 0; i < f.size(); i++)

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "cardinal_spline.h"
 
-namespace sml::cardinal 
+namespace spl::cardinal 
 {
 	double rect(double t) 
 	{

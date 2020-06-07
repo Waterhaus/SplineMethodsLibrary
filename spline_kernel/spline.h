@@ -7,7 +7,7 @@
 
 
 
-namespace sml
+namespace spl::ker
 {
 
 	template <typename T>
@@ -20,7 +20,7 @@ namespace sml
 	{
 	public:
 		spline();
-		spline(std::size_t grid_size, interval border);//��������� ������. ������� ������ ������� size + degree - 2
+		spline(std::size_t grid_size, interval border);
 		spline(const spline& f);
 		
 		~spline() {};

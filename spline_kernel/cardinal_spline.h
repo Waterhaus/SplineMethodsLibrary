@@ -5,7 +5,7 @@
 
 #include "interval.h"
 
-namespace sml::cardinal
+namespace spl::cardinal
 {
 	/*Функция - ступенька на отрезке [0,1]*/
 	double rect(double t);

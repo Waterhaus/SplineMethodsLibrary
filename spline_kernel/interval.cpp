@@ -4,22 +4,22 @@
 using namespace std;
 
 
-sml::interval::interval() :
+spl::interval::interval() :
 	_aborder(0.),
 	_bborder(0.) {}
 
-sml::interval::interval(double a, double b) :
+spl::interval::interval(double a, double b) :
 	_aborder(std::min<double>(a, b)),
 	_bborder(std::max<double>(a, b)) {}
 
 
-double sml::interval::length() const 
+double spl::interval::length() const 
 {
 	return _bborder - _aborder;
 }
 
 
-double sml::interval::get_step(std::size_t n) const
+double spl::interval::get_step(std::size_t n) const
 {
 	double N = static_cast<double>(n);
 	return 
@@ -27,7 +27,7 @@ double sml::interval::get_step(std::size_t n) const
 		/ //===========================
 					 ( N - 1.);
 }
-double sml::interval::get_inverse_step(std::size_t n) const
+double spl::interval::get_inverse_step(std::size_t n) const
 {
 	double N = static_cast<double>(n);
 	return
@@ -36,7 +36,7 @@ double sml::interval::get_inverse_step(std::size_t n) const
 			(_bborder - _aborder);
 }
 
-bool sml::interval::is_contains(double t) const 
+bool spl::interval::is_contains(double t) const 
 {
 	if (t >= _aborder && t <= _bborder)
 		return true;
@@ -44,7 +44,7 @@ bool sml::interval::is_contains(double t) const
 		return false;
 }
 
-std::tuple<double, double> sml::interval::data() const 
+std::tuple<double, double> spl::interval::data() const 
 {
 	return std::make_tuple(_aborder, _bborder);
 }

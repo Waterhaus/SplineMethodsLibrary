@@ -4,7 +4,7 @@
 #include "interval.h"
 
 
-namespace sml::data
+namespace spl::data
 {
 	template<typename T>
 	std::vector<T> calculate_points(std::function<T(double)> f, interval interv, int size)

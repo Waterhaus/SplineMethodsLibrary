@@ -1,9 +1,9 @@
 #pragma once
 #include "spline.h"
-namespace sml 
+namespace spl 
 {
 	template<typename VectorSpaceType, std::size_t degree>
-	spline<VectorSpaceType, degree>::spline() :
+	ker::spline<VectorSpaceType, degree>::spline() :
 		_coefs(Vector<VectorSpaceType>::Zero(4u + degree - 2u)),
 		_border({ 0., 1. }),
 		_step(_border.get_step(4)),
@@ -12,21 +12,21 @@ namespace sml
 
 
 	template<typename VectorSpaceType, std::size_t degree>
-	spline<VectorSpaceType, degree>::spline(std::size_t grid_size, interval border) :
+	ker::spline<VectorSpaceType, degree>::spline(std::size_t grid_size, interval border) :
 		_coefs(Vector<VectorSpaceType>::Zero(grid_size + degree - 2u)),
 		_border(border),
 		_step(_border.get_step(grid_size)),
 		_grid_size(grid_size) {}
 
 	template<typename VectorSpaceType, std::size_t degree>
-	spline<VectorSpaceType, degree>::spline(const spline& f) :
+	ker::spline<VectorSpaceType, degree>::spline(const spline& f) :
 		_coefs(f._coefs),
 		_border(f._border),
 		_grid_size(f._grid_size) {}
 
 
 	template<typename VectorSpaceType, std::size_t degree>
-	VectorSpaceType spline<VectorSpaceType, degree>::operator()(double t) const
+	VectorSpaceType ker::spline<VectorSpaceType, degree>::operator()(double t) const
 	{
 		using std::vector;
 		using std::optional;
@@ -71,7 +71,7 @@ namespace sml
 
 
 	template<typename VectorSpaceType, std::size_t degree>
-	spline<VectorSpaceType, degree> spline<VectorSpaceType, degree>::operator+(const spline& other) const
+	ker::spline<VectorSpaceType, degree> ker::spline<VectorSpaceType, degree>::operator+(const spline& other) const
 	{
 		spline<VectorSpaceType, degree> f(_grid_size, _border);
 		f._coefs = _coefs + other._coefs;
@@ -79,7 +79,7 @@ namespace sml
 	}
 
 	template<typename VectorSpaceType, std::size_t degree>
-	spline<VectorSpaceType, degree> spline<VectorSpaceType, degree>::operator-(const spline& other) const
+	ker::spline<VectorSpaceType, degree> ker::spline<VectorSpaceType, degree>::operator-(const spline& other) const
 	{
 		spline<VectorSpaceType, degree> f(_grid_size, _border);
 		f._coefs = _coefs - other._coefs;
@@ -87,16 +87,16 @@ namespace sml
 	}
 
 	template<typename T, std::size_t degree>
-	spline<T, degree>  operator*(double a, const spline<T, degree>& other)
+	ker::spline<T, degree>  operator*(double a, const ker::spline<T, degree>& other)
 	{
-		spline<T, degree> f(other._grid_size, other._border);
+		ker::spline<T, degree> f(other._grid_size, other._border);
 		other._coefs *= a;
 
 		return std::move(f);
 	}
 
 	template<typename T, std::size_t degree>
-	spline<T, degree>  operator*(const spline<T, degree>& f, double a)
+	ker::spline<T, degree>  operator*(const ker::spline<T, degree>& f, double a)
 	{
 		return std::move(a * f);
 	}

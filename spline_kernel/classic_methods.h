@@ -3,7 +3,7 @@
 #include <optional>
 #include "interval.h"
 
-namespace sml::numeric
+namespace spl::numeric
 {
 
 	template<typename T>

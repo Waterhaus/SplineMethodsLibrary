@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-namespace sml
+namespace spl
 {
 	class polynomial 
 	{
